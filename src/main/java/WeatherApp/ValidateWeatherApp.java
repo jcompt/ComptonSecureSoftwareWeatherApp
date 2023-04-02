@@ -1,19 +1,20 @@
+//Validate class for Hardened Weather App
+
 package WeatherApp;
 
 public class ValidateWeatherApp {
 
     //Declare class variables
-    public static String[] args;
-    public static Boolean isGood = false;
-    public static int numDigits = 0;
-    public static String userZip;
+    private static Boolean isGood = false;
+    private static int numDigits = 0;
+    private static String userZip;
 
 
-    public static Boolean validateInput (String[] args){
+    public static Boolean validateInput (String args){
 
         //Make sure that input has been entered
-        if(args.length >0){
-            userZip = args[0];
+        if(args.length() >0){
+            userZip = args;
         }else{
            return isGood;
         }
@@ -28,18 +29,18 @@ public class ValidateWeatherApp {
 
             } if(numDigits == 5){
                 isGood = true;
-                passZip(userZip);
             }else{
-                System.out.println("The input you entered is NOT in the format of a zip code!");
+                System.out.println("Your input is not valid!");
             }
         }else
-            System.out.println("A zip code is 5 digits!");
+            System.out.println("Your input is not valid!");
 
         return isGood;
     }
 
-    public static String passZip (String thisZip){
-        return thisZip;
+    //Getter for user zip
+    public static String getUserZip(){
+        return userZip;
     }
 
 
